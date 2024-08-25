@@ -1,43 +1,269 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh-CN">
 
 <head>
-    <meta http-equiv="content-type"
-    content="text/html; charset=utf-8">
-    <meta name="viewport"
-    content="width=device-width,
-    initial-scale=1,maximum-scale=1,
-    user-scalable=no">
-
-    <title>pure css to make a wheather image</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>天气预报</title>
     <link rel="stylesheet" href="Sun.css">
     <link rel="stylesheet" href="rain.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #E0F7FA;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .weather-forecast {
+            width: 300px;
+            background-color: white;
+            border-radius: 15px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            padding: 10px;
+        }
+
+        .day {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 0;
+            border-bottom: 1px solid #E0E0E0;
+        }
+
+        .day:last-child {
+            border-bottom: none;
+        }
+
+        .temperature-range {
+            display: flex;
+            align-items: center;
+        }
+
+        .temperature-range span {
+            margin-left: 10px;
+        }
+
+        .icon-container {
+            width: 40px;
+            height: 40px;
+        }
+
+        /* 晴天 */
+        .sunny {
+            position: relative;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: auto;
+        }
+
+        .sunny .sun {
+            width: 20px;
+            height: 20px;
+            background-color: white;
+            border-radius: 50%;
+            box-shadow: 0 0 0 4px rgb(243, 184, 74);
+            animation: sunny 5s linear infinite;
+            position: relative;
+        }
+
+        .sunny .sun .rays {
+            position: absolute;
+            top: -16px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 3px;
+            height: 9px;
+            background-color: yellow;
+            box-shadow: 0 43px yellow;
+            border-radius: 4px;
+        }
+
+        .sunny .sun .rays::before,
+        .sunny .sun .rays::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 3px;
+            height: 9px;
+            background-color: yellow;
+            box-shadow: 0 43px yellow;
+            border-radius: 4px;
+            transform: rotate(60deg);
+            transform-origin: 50% 27px;
+        }
+
+        .sunny .sun .rays::before {
+            transform: rotate(-60deg);
+        }
+
+        @keyframes sunny {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* 阴天 */
+        .cloudy {
+            position: relative;
+            width: 27px;
+            height: 27px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .cloudy .cloud {
+            width: 27px;
+            height: 18px;
+            background-color: var(--bg-color);
+            position: absolute;
+            border-radius: 50% 50% 40% 40%;
+            box-shadow: -14px 4px 0 -4px var(--bg-color),
+                        14px 6px 0 -6px var(--bg-color),
+                        0 0 0 3px lightgray,
+                        -14px 4px 0 -2px lightgray,
+                        14px 6px 0 -4px lightgray;
+        }
+
+        .cloudy .cloud::after {
+            content: "";
+            width: 30px;
+            height: 6px;
+            background-color: var(--bg-color);
+            box-shadow: 0 3px 0 0 lightgray;
+            position: absolute;
+            bottom: 0;
+            left: -2px;
+        }
+    </style>
 </head>
 
 <body>
-
-    <div class="container">
-        <!--晴-->
-        <div class="sunny"> 
-            <div class="sun"> 
-                <div class="rays"> </div>
+    <div class="weather-forecast">
+        <div class="day">
+            <span>今天</span>
+            <div class="sunny">
+                <div class="sun">
+                    <div class="rays"></div>
+                </div>
+            </div>
+            <div class="temperature-range">
+                <span>16°</span>
+                <div class="bar" style="width: 80px; background-color: #FFD54F;"></div>
+                <span>31°</span>
             </div>
         </div>
-        <!--雨-->
-        <div class="rainy">
-            <div class="cloud"></div> 
-            <div class="rain"></div>
-        </div>
-        <!--多云-->
-        <div>
-            <div class="cloud"></div>
-            <div class="cloud"></div>
-        </div>
-        <div>
 
+        <div class="day">
+            <span>周一</span>
+            <div class="sunny">
+                <div class="sun">
+                    <div class="rays"></div>
+                </div>
+            </div>
+            <div class="temperature-range">
+                <span>16°</span>
+                <div class="bar" style="width: 85px; background-color: #FFB300;"></div>
+                <span>32°</span>
+            </div>
         </div>
-    </div>
 
+        <div class="day">
+            <span>周二</span>
+            <div class="sunny">
+                <div class="sun">
+                    <div class="rays"></div>
+                </div>
+            </div>
+            <div class="temperature-range">
+                <span>19°</span>
+                <div class="bar" style="width: 100px; background-color: #FF8F00;"></div>
+                <span>34°</span>
+            </div>
+        </div>
+
+        <div class="day">
+            <span>周三</span>
+            <div class="sunny">
+                <div class="sun">
+                    <div class="rays"></div>
+                </div>
+            </div>
+            <div class="temperature-range">
+                <span>21°</span>
+                <div class="bar" style="width: 110px; background-color: #FF6F00;"></div>
+                <span>35°</span>
+            </div>
+        </div>
+
+        <div class="day">
+            <span>周四</span>
+            <div class="rainy">
+                <div class="cloud"></div>
+                <div class="rain"></div>
+            </div>
+            <div class="temperature-range">
+                <span>22°</span>
+                <div class="bar" style="width: 110px; background-color: #FF6F00;"></div>
+                <span>35°</span>
+            </div>
+        </div>
+
+        <div class="day">
+            <span>周五</span>
+            <div class="rainy">
+                <div class="cloud"></div>
+                <div class="rain"></div>
+            </div>
+            <div class="temperature-range">
+                <span>22°</span>
+                <div class="bar" style="width: 100px; background-color: #FF8F00;"></div>
+                <span>34°</span>
+            </div>
+        </div>
+
+        <div class="day">
+            <span>周六</span>
+            <div class="cloudy">
+                <div class="cloud"></div>
+            </div>
+            <div class="temperature-range">
+                <span>22°</span>
+                <div class="bar" style="width: 85px; background-color: #FFB300;"></div>
+                <span>32°</span>
+            </div>
+        </div>
+
+        <div class="day">
+            <span>周日</span>
+            <div class="cloudy">
+                <div class="cloud"></div>
+            </div>
+            <div class="temperature-range">
+                <span>21°</span>
+                <div class="bar" style="width: 80px; background-color: #FFD54F;"></div>
+                <span>31°</span>
+            </div>
+        </div>
 </body>
+
 </html>
