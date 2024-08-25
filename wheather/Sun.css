@@ -8,16 +8,10 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    --bg-color: #161616;
+    --bg-color: #fdfcfc;
     background-color: var(--bg-color);
 }
 
-.container {
-    border: 1px solid red;
-    width: 700px;
-    display: flex;
-    justify-content: space-around;
-}
 
 /*晴*/
 .sunny {
