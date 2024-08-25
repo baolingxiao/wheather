@@ -1,0 +1,81 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    --bg-color: #161616;
+    background-color: var(--bg-color);
+}
+
+.container {
+    border: 1px solid red;
+    width: 700px;
+    display: flex;
+    justify-content: space-around;
+}
+
+/*晴*/
+.sunny {
+    position: relative;
+    width: 100px;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/*太阳*/
+.sunny .sun {
+    width: 40px;
+    height: 40px;
+    background-color: var(--bg-color);
+    border-radius: 50%;
+    box-shadow: 0 0 0 6px rgb(243, 184, 74);
+    animation: sunny 10s linear infinite;
+    position: relative;
+}
+
+/* 光线部分 */
+.sunny .sun .rays{
+    position:absolute;
+    top: -32px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 6px;
+    height:18px;
+    background-color: yellow;
+    box-shadow:0 86px yellow;
+    border-radius: 4px;
+}
+
+.sunny .sun .rays::before,
+.sunny .sun .rays::after{
+    content:"";
+    position:absolute;
+    top:0;
+    left:0;
+    width:6px;
+    height:18px;
+    background-color:yellow;
+    box-shadow:0 86px yellow;
+    border-radius:4px;
+    transform:rotate(60deg);
+    transform-origin: 50% 52px;
+}
+.sunny .sun .rays::before{
+    transform:rotate(-60deg);
+}
+/*action*/
+@keyframes sunny {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}

@@ -1,0 +1,90 @@
+/* 雨 */
+.rainy {
+    position: relative;
+    width: 100px;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* 云朵 */
+.rainy .cloud {
+    width: 60px;
+    height: 60px;
+    /* --bg-color:red; */
+    background-color: var(--bg-color);
+    position: absolute;
+    border-radius: 50%;
+    box-shadow: -35px 11px 0 -11px var(--bg-color),
+                33px 15px 0 -15px var(--bg-color),
+                0 0 0 6px lightgray,
+                -35px 11px 0 -5px lightgray,
+                33px 15px 0 -9px lightgray;
+}
+
+/* 让云朵下边为直边 */
+.rainy .cloud::after {
+    content: "";
+    width: 73px;
+    height: 16px;
+    background-color: var(--bg-color);
+    box-shadow: 0 6px 0 0 lightgray;
+    position: absolute;
+    bottom: 0;
+    left: -8px;
+}
+
+/* 雨滴区域 */
+.rainy .rain {
+    width: 60px;
+    height: 60px;
+    background-color: var(--bg-color);
+    position: absolute;
+    top: 55%;
+    left: 20%;
+}
+
+/* 雨滴 */
+.rainy .rain::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 18px;
+    height: 18px;
+    background-color: #0cf;
+    border-radius: 100% 0 60% 50% / 60% 0 100% 50%;
+    box-shadow: 10px 14px 0 -2px rgba(255,255,255,0.2),
+                -14px 18px 0 -2px rgba(255,255,255,0.2),
+                -22px -2px 0 rgba(255,255,255,0.2);
+    transform: rotate(-28deg);
+    margin: -16px 0 0 -4px;
+    /* 执行动画 */
+    animation: rainy 2s linear infinite;
+}
+
+@keyframes rainy {
+    0% {
+        background-color: #0cf;
+        box-shadow: 10px 14px 0 -2px rgba(255,255,255,0.2),
+                    -14px 18px 0 -2px rgba(255,255,255,0.2),
+                    -22px -2px 0 rgba(255,255,255,0.2);
+    }
+    25% {
+        box-shadow: 10px 14px 0 -2px rgba(255,255,255,0.2),
+                    -14px 18px 0 -2px #0cf,
+                    -22px -2px 0 rgba(255,255,255,0.2);
+    }
+    50% {
+        background-color: rgba(255,255,255,0.2);
+        box-shadow: 10px 14px 0 -2px #0cf,
+                    -14px 18px 0 -2px rgba(255,255,255,0.2),
+                    -22px -2px 0 #0cf;
+    }
+    100% {
+        box-shadow: 10px 14px 0 -2px rgba(255,255,255,0.2),
+                    -14px 18px 0 -2px rgba(255,255,255,0.2),
+                    -22px -2px 0 #0cf;
+    }
+}
