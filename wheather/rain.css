@@ -1,8 +1,8 @@
 /* 雨 */
 .rainy {
     position: relative;
-    width: 100px;
-    height: 100px;
+    width: 45px; /* Reduced by 10% from 50px */
+    height: 45px; /* Reduced by 10% from 50px */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -10,35 +10,34 @@
 
 /* 云朵 */
 .rainy .cloud {
-    width: 60px;
-    height: 60px;
-    /* --bg-color:red; */
+    width: 27px; /* Reduced by 10% from 30px */
+    height: 27px; /* Reduced by 10% from 30px */
     background-color: var(--bg-color);
     position: absolute;
     border-radius: 50%;
-    box-shadow: -35px 11px 0 -11px var(--bg-color),
-                33px 15px 0 -15px var(--bg-color),
-                0 0 0 6px lightgray,
-                -35px 11px 0 -5px lightgray,
-                33px 15px 0 -9px lightgray;
+    box-shadow: -15px 5px 0 -5px var(--bg-color), /* Reduced proportionally */
+                15px 7px 0 -7px var(--bg-color),
+                0 0 0 3px lightgray,
+                -15px 5px 0 -2px lightgray,
+                15px 7px 0 -4px lightgray;
 }
 
 /* 让云朵下边为直边 */
 .rainy .cloud::after {
     content: "";
-    width: 73px;
-    height: 16px;
+    width: 33px; /* Reduced by 10% from 36px */
+    height: 7px; /* Reduced by 10% from 8px */
     background-color: var(--bg-color);
-    box-shadow: 0 6px 0 0 lightgray;
+    box-shadow: 0 3px 0 0 lightgray;
     position: absolute;
     bottom: 0;
-    left: -8px;
+    left: -4px; /* Adjusted to fit the smaller cloud size */
 }
 
 /* 雨滴区域 */
 .rainy .rain {
-    width: 60px;
-    height: 60px;
+    width: 27px; /* Reduced by 10% from 30px */
+    height: 27px; /* Reduced by 10% from 30px */
     background-color: var(--bg-color);
     position: absolute;
     top: 55%;
@@ -51,15 +50,15 @@
     position: absolute;
     top: 50%;
     left: 50%;
-    width: 18px;
-    height: 18px;
+    width: 8px;  /* Reduced by 10% from 9px */
+    height: 8px; /* Reduced by 10% from 9px */
     background-color: #0cf;
     border-radius: 100% 0 60% 50% / 60% 0 100% 50%;
-    box-shadow: 10px 14px 0 -2px rgba(255,255,255,0.2),
-                -14px 18px 0 -2px rgba(255,255,255,0.2),
-                -22px -2px 0 rgba(255,255,255,0.2);
+    box-shadow: 4.5px 6px 0 -1px rgba(255,255,255,0.2), /* Reduced proportionally */
+                -6px 8px 0 -1px rgba(255,255,255,0.2),
+                -10px -1px 0 rgba(255,255,255,0.2);
     transform: rotate(-28deg);
-    margin: -16px 0 0 -4px;
+    margin: -7px 0 0 -2px;
     /* 执行动画 */
     animation: rainy 2s linear infinite;
 }
@@ -67,24 +66,24 @@
 @keyframes rainy {
     0% {
         background-color: #0cf;
-        box-shadow: 10px 14px 0 -2px rgba(255,255,255,0.2),
-                    -14px 18px 0 -2px rgba(255,255,255,0.2),
-                    -22px -2px 0 rgba(255,255,255,0.2);
+        box-shadow: 4.5px 6px 0 -1px rgba(255,255,255,0.2), /* Reduced proportionally */
+                    -6px 8px 0 -1px rgba(255,255,255,0.2),
+                    -10px -1px 0 rgba(255,255,255,0.2);
     }
     25% {
-        box-shadow: 10px 14px 0 -2px rgba(255,255,255,0.2),
-                    -14px 18px 0 -2px #0cf,
-                    -22px -2px 0 rgba(255,255,255,0.2);
+        box-shadow: 4.5px 6px 0 -1px rgba(255,255,255,0.2),
+                    -6px 8px 0 -1px #0cf,
+                    -10px -1px 0 rgba(255,255,255,0.2);
     }
     50% {
         background-color: rgba(255,255,255,0.2);
-        box-shadow: 10px 14px 0 -2px #0cf,
-                    -14px 18px 0 -2px rgba(255,255,255,0.2),
-                    -22px -2px 0 #0cf;
+        box-shadow: 4.5px 6px 0 -1px #0cf,
+                    -6px 8px 0 -1px rgba(255,255,255,0.2),
+                    -10px -1px 0 #0cf;
     }
     100% {
-        box-shadow: 10px 14px 0 -2px rgba(255,255,255,0.2),
-                    -14px 18px 0 -2px rgba(255,255,255,0.2),
-                    -22px -2px 0 #0cf;
+        box-shadow: 4.5px 6px 0 -1px rgba(255,255,255,0.2),
+                    -6px 8px 0 -1px rgba(255,255,255,0.2),
+                    -10px -1px 0 #0cf;
     }
 }
