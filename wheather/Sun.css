@@ -8,7 +8,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    --bg-color: #fdfcfc;
+    --bg-color: #BCCCDC;
     background-color: var(--bg-color);
 }
 
@@ -16,59 +16,63 @@ body {
 /*晴*/
 .sunny {
     position: relative;
-    width: 100px;
-    height: 100px;
+    width: 50px; /* Adjusted for a smaller icon */
+    height: 50px;
     display: flex;
     justify-content: center;
     align-items: center;
+    margin: auto; /* Centering the sunny icon within the container */
 }
 
 /*太阳*/
 .sunny .sun {
-    width: 40px;
-    height: 40px;
-    background-color: var(--bg-color);
+    width: 20px;
+    height: 20px;
+    background-color:var(--bg-color); /* Sun's inner color matching the page background */
     border-radius: 50%;
-    box-shadow: 0 0 0 6px rgb(243, 184, 74);
-    animation: sunny 10s linear infinite;
+    box-shadow: 0 0 0 4px rgb(243, 184, 74); /* Adjusted shadow size */
+    animation: sunny 5s linear infinite; /* Adjusted animation speed */
     position: relative;
 }
 
 /* 光线部分 */
-.sunny .sun .rays{
-    position:absolute;
-    top: -32px;
+.sunny .sun .rays {
+    position: absolute;
+    top: -16px;
     left: 50%;
     transform: translateX(-50%);
-    width: 6px;
-    height:18px;
+    width: 3px;
+    height: 9px;
     background-color: yellow;
-    box-shadow:0 86px yellow;
+    box-shadow: 0 43px yellow;
     border-radius: 4px;
 }
 
 .sunny .sun .rays::before,
-.sunny .sun .rays::after{
-    content:"";
-    position:absolute;
-    top:0;
-    left:0;
-    width:6px;
-    height:18px;
-    background-color:yellow;
-    box-shadow:0 86px yellow;
-    border-radius:4px;
-    transform:rotate(60deg);
-    transform-origin: 50% 52px;
+.sunny .sun .rays::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 3px;
+    height: 9px;
+    background-color: yellow;
+    box-shadow: 0 43px yellow;
+    border-radius: 4px;
+    transform: rotate(60deg);
+    transform-origin: 50% 27px; /* Adjusted to match smaller sun size */
 }
-.sunny .sun .rays::before{
-    transform:rotate(-60deg);
+
+.sunny .sun .rays::before {
+    transform: rotate(-60deg);
 }
+
 /*action*/
 @keyframes sunny {
     0% {
         transform: rotate(0deg);
     }
+
     100% {
         transform: rotate(360deg);
     }

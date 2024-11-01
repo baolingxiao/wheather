@@ -1,0 +1,52 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #E0F7FA;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.weekly-forecast {
+    position: fixed; /* Fix the position relative to the viewport */
+    bottom: 0; /* Align it to the bottom of the screen */
+    left: 0; /* Align it to the left edge */
+    width: 97%; /* Set the width to fill the entire screen */
+    height: 33.3vh; /* Set height to 1/3 of the viewport height */
+    background-color:var(--bg-color);
+    --bg-color:#BCCCDC;
+    padding: 20px;
+    border-radius: 15px 15px 0 0; /* Rounded corners only on the top */
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center; /* Center icons and text vertically */
+}
+
+.day {
+    text-align: center;
+}
+
+.day span {
+    display: block;
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.icon-container {
+    width: 50px;
+    height: 50px;
+    margin: 0 auto;
+}
+
+.temperature-range {
+font-size: 14px;
+position: relative; /* Relative positioning allows you to move it relative to its normal position */
+top: 10px; /* Moves the temperature numbers down by 10px */
+}
+
+.temperature-range span {
+    display: block;
+}

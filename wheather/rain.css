@@ -17,9 +17,9 @@
     border-radius: 50%;
     box-shadow: -15px 5px 0 -5px var(--bg-color), /* Reduced proportionally */
                 15px 7px 0 -7px var(--bg-color),
-                0 0 0 3px lightgray,
-                -15px 5px 0 -2px lightgray,
-                15px 7px 0 -4px lightgray;
+                0 0 0 3px rgb(255, 254, 254),
+                -15px 5px 0 -2px rgb(255, 254, 254),
+                15px 7px 0 -4px rgb(255, 254, 254);
 }
 
 /* 让云朵下边为直边 */
@@ -28,7 +28,7 @@
     width: 33px; /* Reduced by 10% from 36px */
     height: 7px; /* Reduced by 10% from 8px */
     background-color: var(--bg-color);
-    box-shadow: 0 3px 0 0 lightgray;
+    box-shadow: 0 3px 0 0 rgb(255, 254, 254);
     position: absolute;
     bottom: 0;
     left: -4px; /* Adjusted to fit the smaller cloud size */

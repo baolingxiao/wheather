@@ -1,0 +1,62 @@
+/* 多云 */
+.cloudy {
+  position: relative;
+  width: 50px;  /* 宽度缩小为原来的1/2 */
+  height: 50px; /* 高度缩小为原来的1/2 */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+/* 云朵 */
+.cloudy .cloud {
+  z-index: 1;
+  width: 30px;  /* 宽度缩小为原来的1/2 */
+  height: 30px; /* 高度缩小为原来的1/2 */
+  background-color: var(--bg-color);
+  position: absolute;
+  border-radius: 50%;
+  box-shadow: -17.5px 5.5px 0 -5.5px var(--bg-color),
+              16.5px 7.5px 0 -7.5px var(--bg-color),
+              0 0 0 3px rgb(255, 255, 255),
+              -17.5px 5.5px 0 -2.5px rgb(252, 251, 251),
+              16.5px 7.5px 0 -4.5px rgb(250, 249, 249);
+}
+/* 让云朵下边为直边 */
+.cloudy .cloud::after {
+  content: "";
+  width: 36.5px;  /* 宽度缩小为原来的1/2 */
+  height: 8px;    /* 高度缩小为原来的1/2 */
+  background-color: var(--bg-color);
+  box-shadow: 0 3px 0 0 rgb(252, 251, 251);
+  position: absolute;
+  bottom: 0;
+  left: -4px;
+}
+/* 小云朵 */
+.cloudy .cloud:nth-child(2) {
+  z-index: 0;
+  background-color: #ce1b1b;
+  box-shadow: -17.5px 5.5px 0 -5.5px #7ff3e9,
+              16.5px 7.5px 0 -7.5px #2ccde2,
+              0 0 0 3px #75b7ec,
+              -17.5px 5.5px 0 -2.5px #72cae0,
+              16.5px 7.5px 0 -4.5px #75bee9;
+  opacity: 0.3;
+  transform: scale(0.25) translate(48px, -24px); /* 缩放比例为0.25 */
+  /* 执行动画 */
+  animation: cloudy 3s linear infinite;
+}
+
+/* 小云朵 */
+@keyframes cloudy {
+  0% {
+      opacity: 0;
+  }
+  50% {
+      opacity: 0.3;
+  }
+  100% {
+      opacity: 0;
+      transform: scale(0.25) translate(-100%, -24px); /* 缩放比例为0.25 */
+  }
+}
